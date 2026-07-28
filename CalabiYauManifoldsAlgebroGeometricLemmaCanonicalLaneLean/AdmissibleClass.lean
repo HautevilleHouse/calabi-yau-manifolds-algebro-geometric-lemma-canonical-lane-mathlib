@@ -1,0 +1,24 @@
+import canonicalLaneMathlib.AdmissibleClass
+import CalabiYauManifoldsAlgebroGeometricLemmaCanonicalLaneLean.CalabiYauManifold
+import CalabiYauManifoldsAlgebroGeometricLemmaCanonicalLaneLean.CalabiConjecture
+import CalabiYauManifoldsAlgebroGeometricLemmaCanonicalLaneLean.MirrorSymmetry
+
+namespace HautevilleHouse
+namespace CalabiYauManifoldsAlgebroGeometricLemmaCanonicalLaneLean
+
+structure CalabiYauAdmittedObject where
+  complexStructure : ComplexStructurePackage
+  kahlerMetric : KahlerMetricPackage complexStructure
+  calabiYau : CalabiYauManifoldPackage kahlerMetric
+  mirrorSymmetry : MirrorSymmetryPackage calabiYau
+  calabiConjecture : CalabiConjecturePackage calabiYau
+  conclusion : CalabiYauManifoldClosed calabiYau ∧ CalabiConjectureClosed calabiConjecture ∧ MirrorSymmetryClosed mirrorSymmetry
+
+structure AdmissibleClass where
+  object : CalabiYauAdmittedObject
+  endpointSatisfied : Prop
+  remainderRecorded : Prop
+  gateWitness : endpointSatisfied ∨ remainderRecorded
+
+end CalabiYauManifoldsAlgebroGeometricLemmaCanonicalLaneLean
+end HautevilleHouse
